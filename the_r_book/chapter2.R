@@ -39,3 +39,25 @@ X
 dimnames(X) <- list(NULL,paste("drug.",1:5,sep=""))
 X
 rm(list = ls())
+
+X <- matrix(rpois(20, 1.5), nrow = 4)
+mean(X[,5])
+var(X[1,])
+colSums(X)
+rowSums(X)
+rowsum(X, c("A", "B", "B", "A"))
+apply(X, 2, min)
+apply(X, 1, max)
+row(X)
+col(X)
+apply(X,2,sample)
+apply(X,2,sample)
+
+X <- cbind(X, apply(X, 1, sd))
+X <- rbind(X, apply(X, 2, mean))
+rownames(X) <- c(1:4, "mean")
+colnames(X) <- c(1:5, "sd")
+X[,"sd"]
+X["mean",]
+X[,"sd", drop=FALSE]
+X["mean",,drop=FALSE]
