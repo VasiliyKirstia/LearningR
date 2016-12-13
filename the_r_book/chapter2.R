@@ -111,5 +111,46 @@ sample(x, 5, replace = TRUE, prob = seq(1,10,1))
 rm(list = ls())
 
 #loops and repeats
+fac1 <- function(x){
+  cum <- 1
+  for(i in 1:x){
+    cum <- cum*i
+  }
+  return(cum)
+}
+sapply(1:5, fac1)
 
+fac2 <- function(x){
+  i <- 1
+  cum <- 1
+  while(i <= x){
+    cum <- cum * i
+    i <- i + 1
+  }
+  return(cum)
+}
+sapply(1:5, fac2)
 
+fac3 <- function(x){
+  i <- 1
+  cum <- 1
+  repeat{
+    if(i > x){
+      return(cum)
+    }
+    cum <- cum * i
+    i <- i + 1
+  }
+}
+sapply(1:5, fac3)
+
+cumprod(1:5)
+cumprod(0:5)
+
+fac4 <- function(x){
+  return(max(cumprod(1:x)))
+}
+sapply(1:5, fac4)
+fac4(0)
+
+sapply(1:5, factorial)
