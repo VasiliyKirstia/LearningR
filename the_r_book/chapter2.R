@@ -61,3 +61,17 @@ X[,"sd"]
 X["mean",]
 X[,"sd", drop=FALSE]
 X["mean",,drop=FALSE]
+
+X <- matrix(rpois(20, 3), nrow = 4)
+X <- sweep(X, 2, apply(X, 2, mean), "-")
+apply(X, 2, mean)
+rm(list = ls())
+
+(X <- matrix(1:24,nrow=4))
+apply(X,1,sum)
+apply(X,2,sum)
+apply(X,1,sqrt)
+apply(X,2,sqrt)
+apply(X,1,sample)
+apply(X,2,sample)
+sapply(1:3,seq)
