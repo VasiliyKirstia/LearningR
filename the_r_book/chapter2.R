@@ -29,3 +29,13 @@ class(m)
 attributes(m)
 t(m)
 rm(list = ls())
+
+X <- matrix(rpois(20, 1.5), nrow = 4)
+X
+rownames(X) <- rownames(X, do.NULL = FALSE, prefix = "Trial.")
+X
+colnames(X) <- c("aspirin", "paracetamol", "nurofen", "hedex", "placebo")
+X
+dimnames(X) <- list(NULL,paste("drug.",1:5,sep=""))
+X
+rm(list = ls())
