@@ -91,3 +91,25 @@ data
 aperm(data,c(2,3,1))
 aperm(data,c(1,3,2))
 aperm(data,c(3,2,1))
+
+set.seed(100)
+runif(5)
+runif(5)
+runif(5)
+set.seed(100)
+runif(5)
+runif(5)
+runif(5)
+
+x <- seq(10)
+sample(x)
+sample(x, replace = TRUE)
+sample(x, replace = TRUE, prob = rnorm(10, 100, 10))
+sample(x, 5)
+sample(x, 5, replace = TRUE)
+sample(x, 5, replace = TRUE, prob = seq(1,10,1))
+rm(list = ls())
+
+#loops and repeats
+
+
