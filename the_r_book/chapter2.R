@@ -371,3 +371,14 @@ phrase <- "the quick brown fox jumps over the lazy dog"
 q <- character(20)
 for (i in 1:20) q[i] <- substr(phrase,1,i)
 q
+
+nchar(phrase)
+strsplit(phrase, "")
+strsplit(phrase, " ")
+strsplit(phrase, "the")
+table(strsplit(phrase, ""))
+paste(lapply(strsplit(phrase, ""), rev)[[1]], collapse = "")
+nchar(strsplit(phrase,"the")[[1]] [2])
+
+toupper(letters)
+tolower(LETTERS)
