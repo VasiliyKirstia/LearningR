@@ -306,3 +306,11 @@ for (i in 2:10^6) {
   if(x[i]>cmax) cmax <- x[i] 
 }
 proc.time() - pt
+
+#loops for producting time series
+N <- numeric(20)
+N[1] <- 0.6
+lambda <- 2.8
+for(t in 2:20) N[t] <- lambda * N[t-1] * (1 - N[t-1])
+plot(N, type = "l")
+rm(list = ls())
