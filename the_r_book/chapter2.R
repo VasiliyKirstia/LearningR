@@ -314,3 +314,32 @@ lambda <- 2.8
 for(t in 2:20) N[t] <- lambda * N[t-1] * (1 - N[t-1])
 plot(N, type = "l")
 rm(list = ls())
+
+#lists and lapply
+l <- list(first=1:10, second=c(TRUE, FALSE, TRUE, FALSE), third=c("o", "b"))
+l[[1]]
+l[[1]][8]
+l[1][1]
+l$first
+lapply(l, length)
+lapply(l, mean)
+summary(l)
+str(l)
+
+#saving lists
+data <- data.frame(
+  A=sample(0:1, 10, replace = TRUE), 
+  B=sample(0:1,10, replace = TRUE), 
+  C=sample(0:1,10, replace = TRUE),
+  D=sample(0:1,10, replace = TRUE))
+rownames(data) <- 1:10
+data
+sletters <- sapply(1:10, function(i) colnames(data)[data[i,]>0])
+snumbers <- sapply(1:4, function(j) rownames(data)[data[,j]>0])
+sletters
+snumbers
+newframe <- stack(data)
+newframe<-data.frame(newframe, rep(rownames(data),4))
+colnames(newframe) <- c("value", "letter", "number")
+newframe
+write.table(newframe, file = "/tmp/rdataframe.txt", sep = " ")
