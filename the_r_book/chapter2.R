@@ -343,3 +343,31 @@ newframe<-data.frame(newframe, rep(rownames(data),4))
 colnames(newframe) <- c("value", "letter", "number")
 newframe
 write.table(newframe, file = "/tmp/rdataframe.txt", sep = " ")
+rm(list = ls())
+
+#strings and character vectors
+a <- "cat"
+b <- "dog"
+length(a)
+nchar(a)
+d <- c(a, b)
+length(d)
+nchar(d)
+print(d)
+noquote(d)
+is.factor(d)
+is.character(d)
+as.numeric(c("123", "124"))
+LETTERS
+letters
+which(letters == "n")
+
+paste("a", "b", "c", sep = "")
+paste("a", "b", "c")
+paste(" a ", " b ", " c ", sep = "")
+paste(c("a", "b"), c("c", "d"), c("e", "f"), sep = " ")
+
+phrase <- "the quick brown fox jumps over the lazy dog"
+q <- character(20)
+for (i in 1:20) q[i] <- substr(phrase,1,i)
+q
