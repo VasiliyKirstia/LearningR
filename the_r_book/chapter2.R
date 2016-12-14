@@ -290,3 +290,19 @@ fibonacci <- function(n) {
   b 
 }
 sapply(1:10, fibonacci)
+
+#loop avoidance
+x <- rnorm(20)
+ifelse(x<median(x), "small", "big")
+ifelse(x<0, NA, x)
+
+#the slowness of loops
+x<- runif(10^6,0,1000)
+system.time(max(x))
+
+pt <- proc.time()
+cmax <- x[1]
+for (i in 2:10^6) {
+  if(x[i]>cmax) cmax <- x[i] 
+}
+proc.time() - pt
