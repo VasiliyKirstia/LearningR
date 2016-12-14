@@ -382,3 +382,20 @@ nchar(strsplit(phrase,"the")[[1]] [2])
 
 toupper(letters)
 tolower(LETTERS)
+
+a <- 1:50
+b <- 40:70
+res <- match(b, a)
+variable <- ifelse(is.na(res), 0, res)
+variable
+
+random.string <- sapply(1:100, function(i) paste(sample(letters, 10, replace = TRUE), collapse=""))
+grep("^a", random.string)
+random.string[grep("^b", random.string)]
+random.string[-grep("[a-w]$", random.string)]
+random.string[grep("^.a", random.string)] # a at second position
+random.string[grep("^.{5}a", random.string)] # a at sixth position
+random.string[grep("^.{,5}a", random.string)] # a at 6th or less positions
+random.string[grep("^.{5,}a", random.string)] # a at 6th or more positions
+random.string[grep("^.{1,2}a", random.string)] # a at 2nd or 3rd positions
+rm(list = ls())
