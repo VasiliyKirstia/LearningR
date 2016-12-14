@@ -263,3 +263,30 @@ sapply(1:5, fac4)
 fac4(0)
 
 sapply(1:5, factorial)
+
+#binary representation of a number
+binary <- function(x){
+  string <- rep(0, times=32)
+  i <- 0
+  while(x>0){
+    string[32 - i] <- x %% 2
+    x <- x %/% 2
+    i <- i+1
+  }
+  return(string[ match(1, string):32 ])
+}
+sapply(15:17, binary)
+
+#fibonacci series
+fibonacci <- function(n) {
+  a <- 1
+  b <- 0
+  while(n>0){
+    swap <- a
+    a <- a+b
+    b <- swap
+    n <- n-1 
+  }
+  b 
+}
+sapply(1:10, fibonacci)
