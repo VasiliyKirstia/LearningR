@@ -428,4 +428,18 @@ grep("[[:alnum:]]{4, }",text,value=TRUE)
 grep("[[:alnum:]]{5, }",text,value=TRUE)
 grep("[[:alnum:]]{6, }",text,value=TRUE)
 grep("[[:alnum:]]{7, }",text,value=TRUE)
+rm(list = ls())
 
+#dates and times
+Sys.time()
+as.numeric(Sys.time())
+class(Sys.time())
+unclass(Sys.time())
+time.list <- as.POSIXlt(Sys.time())
+unlist(time.list)
+
+dates <- c("15/06/2014", "16/06/2014", "17/06/2014", "18/06/2014")
+converted.dates <- strptime(dates, "%d/%m/%Y")
+class(converted.dates)
+sapply(converted.dates, weekdays)
+sapply(1:length(converted.dates), function(i) weekdays(converted.dates[i]))
