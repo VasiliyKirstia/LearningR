@@ -415,6 +415,17 @@ charmatch("med", c("mean", "median", "mode"))
 
 stock <- c("car","van")
 requests <- c("truck","suv","van","sports","carrr","waggon","car")
+requests %in% stock
 which(requests %in% stock)
 sapply(requests, "%in%", stock)
 which(sapply(requests, "%in%", stock))
+
+text <- c("arm","leg","head", "foot","hand", "hindleg", "elbow")
+grep("o{1}",text,value=TRUE)
+grep("o{2}",text,value=TRUE)
+grep("o{3}",text,value=TRUE)
+grep("[[:alnum:]]{4, }",text,value=TRUE)
+grep("[[:alnum:]]{5, }",text,value=TRUE)
+grep("[[:alnum:]]{6, }",text,value=TRUE)
+grep("[[:alnum:]]{7, }",text,value=TRUE)
+
