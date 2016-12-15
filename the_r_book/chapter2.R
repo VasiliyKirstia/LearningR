@@ -454,3 +454,17 @@ as.numeric(y1-y2)
 (t1 <- as.difftime("6:14:21"))
 (t2 <- as.difftime("5:12:32"))
 t1-t2
+
+#sequence of dates
+seq(as.POSIXlt("2015-11-04"), as.POSIXlt("2015-11-15"), "1 day")
+seq(as.POSIXlt("2015-11-04"), as.POSIXlt("2016-04-05"), "2 weeks")
+seq(as.POSIXlt("2015-11-04"), as.POSIXlt("2018-10-04"), "3 months")
+seq(as.POSIXlt("2015-11-04"), as.POSIXlt("2026-02-04"), "year")
+seq(as.POSIXlt("2015-11-04"), as.POSIXlt("2015-11-05"), 8955)
+seq(as.POSIXlt("2015-11-04"), by="month", length=10)
+seq(as.POSIXlt("2015-11-04"), by="month", along=runif(15))
+weekdays(seq(as.POSIXlt("2015-11-04"), by="month", along=runif(15)))
+
+y <- as.Date(1:100,origin="2015-12-31")
+x <- as.POSIXlt(y)
+x[x$wday==1]
