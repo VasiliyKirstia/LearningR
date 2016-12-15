@@ -404,3 +404,17 @@ text <- month.name
 sub("a", "|a|", text)
 gsub("a", "A", text)
 gsub("[aA]", "|a|", text)
+
+regexpr("o", text)
+freq <- as.vector(unlist (lapply(gregexpr("o",text),length)))
+present <- ifelse(regexpr("o",text)<0,0,1)
+freq*present
+
+charmatch("m", c("mean", "median", "mode"))
+charmatch("med", c("mean", "median", "mode"))
+
+stock <- c("car","van")
+requests <- c("truck","suv","van","sports","carrr","waggon","car")
+which(requests %in% stock)
+sapply(requests, "%in%", stock)
+which(sapply(requests, "%in%", stock))
