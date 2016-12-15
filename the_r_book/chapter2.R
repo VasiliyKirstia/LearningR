@@ -399,3 +399,8 @@ random.string[grep("^.{,5}a", random.string)] # a at 6th or less positions
 random.string[grep("^.{5,}a", random.string)] # a at 6th or more positions
 random.string[grep("^.{1,2}a", random.string)] # a at 2nd or 3rd positions
 rm(list = ls())
+
+text <- month.name
+sub("a", "|a|", text)
+gsub("a", "A", text)
+gsub("[aA]", "|a|", text)
