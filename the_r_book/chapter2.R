@@ -478,3 +478,17 @@ with(data, plot(date, log(value), pch=16, xlab ="month"))
 model <- with(data, lm(log(value) ~ date))
 abline(model)
 summary(model)
+rm(list = ls())
+
+#enviroments
+ls(envir = globalenv())
+with(OrchardSprays,boxplot(decrease~treatment))
+
+library(MASS)
+with(bacteria,tapply((y=="n"),trt,sum))
+
+with(mammals,{
+  plot(body,brain)
+  model <- lm(body ~ brain)
+  abline(model)
+})
