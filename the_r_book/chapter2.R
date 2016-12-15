@@ -443,3 +443,14 @@ converted.dates <- strptime(dates, "%d/%m/%Y")
 class(converted.dates)
 sapply(converted.dates, weekdays)
 sapply(1:length(converted.dates), function(i) weekdays(converted.dates[i]))
+
+#difftime
+difftime("2014-02-06","2014-07-06")
+round(difftime("2014-02-06","2014-07-06"))
+y2 <- as.POSIXlt("2015-10-22")
+y1 <- as.POSIXlt("2018-10-22")
+y1 - y2
+as.numeric(y1-y2)
+(t1 <- as.difftime("6:14:21"))
+(t2 <- as.difftime("5:12:32"))
+t1-t2
