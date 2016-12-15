@@ -468,3 +468,13 @@ weekdays(seq(as.POSIXlt("2015-11-04"), by="month", along=runif(15)))
 y <- as.Date(1:100,origin="2015-12-31")
 x <- as.POSIXlt(y)
 x[x$wday==1]
+rm(list = ls())
+
+#regression using dates and times
+data <- data.frame(value=exp(13:1 + runif(13, min = 0, max = 2)), #perfect! I like this noise.
+                   date=seq(as.POSIXlt("2016-01-01"), by="month", length=13))
+with(data, plot(date, value, pch=16, xlab ="month"))
+with(data, plot(date, log(value), pch=16, xlab ="month"))
+model <- with(data, lm(log(value) ~ date))
+abline(model)
+summary(model)
