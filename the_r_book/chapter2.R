@@ -521,3 +521,10 @@ geometric(y) #log(0) -> -inf
 
 harmonic <- function(x){1/mean(1/x)}
 harmonic(c(1,2,4,1))
+
+#SS = sum(y - mean(y))
+#degrees of freedom = n - k, where n is the sample size, k is the number of parameters, estimated from the data
+variance <- function(x){sum( (x - mean(x))^2 )/( length(x)-1 )}
+x <- seq(1, 10, 0.2)
+variance(x)
+var(x)
