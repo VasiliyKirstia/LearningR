@@ -480,7 +480,7 @@ abline(model)
 summary(model)
 rm(list = ls())
 
-#enviroments
+#environments
 ls(envir = globalenv())
 with(OrchardSprays,boxplot(decrease~treatment))
 
@@ -492,3 +492,24 @@ with(mammals,{
   model <- lm(body ~ brain)
   abline(model)
 })
+rm(list=ls())
+
+#writing r functions
+arithmetic.mean <- function(x){sum(x)/length(x)}
+arithmetic.mean(c(4,4,5,6,6))
+mean(c(4,4,5,6,6))
+
+med <- function(x){
+  odd.even <- length(x) %% 2
+  if(odd.even == 0){
+    (sort(x)[length(x) %/% 2] + sort(x)[1 + length(x) %/% 2])/2
+  }else{
+    sort(x)[ceiling(length(x)/2)]
+  }
+}
+x <- rnorm(20)
+y <- rnorm(21)
+med(x)
+median(x)
+med(y)
+median(y)
