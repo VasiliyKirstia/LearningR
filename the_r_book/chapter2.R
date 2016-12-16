@@ -576,3 +576,33 @@ central <- function(y, measure) {
 }
 central(rnorm(100,10,2),"Harmonic")
 central(rnorm(100,10,2),4)
+
+func <- function(...){
+  arguments <- list(...)
+  mean_ <- numeric(length(arguments))
+  var_ <- numeric(length(arguments))
+  sd_ <- numeric(length(arguments))
+  for(i in 1:length(arguments)){
+    mean_[i] <- mean(arguments[[i]])
+    var_[i] <- var(arguments[[i]])
+    sd_[i] <- sd(arguments[[i]])
+  }
+  return(list(mean=mean_, var=var_))
+}
+func(rnorm(30), runif(20, 10,50), rpois(20,0.7))
+
+(function(x,y){ z <- 2* x^2 + y^2; x+y+z })(0:7, 1)
+
+plotx2 <- function (x, y = z^2) {
+  z <- 1:x
+  plot(z,y,type="l") 
+}
+windows(7,4)
+par(mfrow=c(1,2))
+plotx2(12)
+plotx2(12,1:12)
+
+(y <- seq(0.9,0.3,-0.1))
+str(y)
+df <- data.frame(x=1:10, y=as.character(rep(1:5, times=2)))
+str(df)
