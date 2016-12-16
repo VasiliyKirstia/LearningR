@@ -528,3 +528,23 @@ variance <- function(x){sum( (x - mean(x))^2 )/( length(x)-1 )}
 x <- seq(1, 10, 0.2)
 variance(x)
 var(x)
+
+variance.ratio <- function(x,y) {
+  v1 <- var(x)
+  v2 <- var(y)
+  if (var(x) > var(y)){
+    vr <- var(x)/var(y)
+    df1 <- length(x)-1
+    df2 <- length(y)-1
+  } else {
+    vr <- var(y)/var(x)
+    df1 <- length(y)-1
+    df2 <- length(x)-1
+  }
+  2*(1-pf(vr,df1,df2)) 
+}
+x <- rnorm(20,15, 2)
+y <- rnorm(20,15, 4)
+variance.ratio(x, y)
+var.test(x,y)
+fisher.test(x,y)
