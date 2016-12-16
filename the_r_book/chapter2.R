@@ -513,3 +513,11 @@ med(x)
 median(x)
 med(y)
 median(y)
+
+geometric <- function(x){exp(mean(log(x)))}
+x<-runif(20, 1, 100)
+geometric(x)
+geometric(y) #log(0) -> -inf
+
+harmonic <- function(x){1/mean(1/x)}
+harmonic(c(1,2,4,1))
