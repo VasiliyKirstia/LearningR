@@ -565,3 +565,14 @@ for(i in 2:30) sem[i] <- se(xv[1:i])
 plot(1:30,sem,ylim=c(0,0.8),
      ylab="standard error of mean",xlab="sample size n",pch=16)
 lines(2:30,1/sqrt(2:30))
+
+central <- function(y, measure) {
+  switch(measure,
+         Mean = mean(y),
+         Geometric = exp(mean(log(y))),
+         Harmonic = 1/mean(1/y),
+         Median = median(y),
+         stop("Measure not included")) 
+}
+central(rnorm(100,10,2),"Harmonic")
+central(rnorm(100,10,2),4)
