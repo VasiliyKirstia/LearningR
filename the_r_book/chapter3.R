@@ -19,3 +19,5 @@ data <- strsplit(lines, " ")
 unld <- unlist(data)[c(-1,-2)]
 data <- matrix(unld, ncol=3, byrow=TRUE)
 data <- as.data.frame(data)
+
+file.exists("/tmp/wtf.txt")
