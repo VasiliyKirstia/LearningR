@@ -606,3 +606,19 @@ plotx2(12,1:12)
 str(y)
 df <- data.frame(x=1:10, y=as.character(rep(1:5, times=2)))
 str(df)
+
+data <- data.frame(x=1:100, y=2:101)
+save(list = ls(), file = "/tmp/r_session")
+rm(list = ls())
+load(file = "/tmp/r_session")
+
+history(Inf)
+savehistory(file = "/tmp/r_history")
+loadhistory(file="/tmp/r_history")
+
+pdf(file = "/tmp/r_pdf")
+plot(1:30, 2:31)
+dev.off()
+
+write.table(data, "/tmp/r_data")
+write(1:20, "/tmp/r_data_c", ncolumns = 1)
