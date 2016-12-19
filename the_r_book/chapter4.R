@@ -38,3 +38,21 @@ obama_vs_mccain[is.na(obama_vs_mccain)] <- 0
 
 new_iris <- iris[rev(order(iris$Sepal.Length)),]
 new_iris[!duplicated(iris$Species),] 
+
+iris[order(iris$Species, -iris$Sepal.Length, -iris$Sepal.Width), ]
+rank(iris$Species)
+iris[order(-rank(iris$Species), iris$Sepal.Length), ]
+
+colnames(iris)
+grep("S", colnames(iris))
+iris[,grep("S", colnames(iris))]
+
+y <- rpois(1500, 1.5)
+table(y)
+short <- as.data.frame(table(y))
+index<-rep(1:8,short$Freq)
+length(index)
+hist(index, -0.5:8.5)
+long <- short[index,]
+head(long)
+tail(long, 20)
