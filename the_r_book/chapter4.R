@@ -30,3 +30,11 @@ iris[-(1:100),]
 iris[!(iris$Sepal.Length > median(iris$Sepal.Length)),]
 iris[ -which(iris$Sepal.Length > median(iris$Sepal.Length)),]
 #-----------------
+
+data("obama_vs_mccain", package = "learningr")
+(ovm_vna <- na.omit(obama_vs_mccain))
+apply(apply(obama_vs_mccain, 2, is.na), 2, sum)
+obama_vs_mccain[is.na(obama_vs_mccain)] <- 0
+
+new_iris <- iris[rev(order(iris$Sepal.Length)),]
+new_iris[!duplicated(iris$Species),] 
