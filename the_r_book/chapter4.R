@@ -56,3 +56,13 @@ hist(index, -0.5:8.5)
 long <- short[index,]
 head(long)
 tail(long, 20)
+
+unique(long)
+long[!duplicated(long),]
+
+#merge(df1,df2) - merge two dataframes
+#merge(df1,df2, all=TRUE) - merge two dataframes and set to NA missing values
+
+summary(iris)
+aggregate(iris[,c(1,2,3,4)], list(s=iris$Species), mean)
+aggregate(cbind(Sepal.Length, Sepal.Width) ~ Species, data = iris, mean)
