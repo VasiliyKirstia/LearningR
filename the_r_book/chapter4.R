@@ -20,3 +20,13 @@ iris[rev(order(iris$Petal.Length)),]
 iris[order(iris$Species, iris$Petal.Length),]
 iris[order(iris$Species, iris$Petal.Length, iris$Petal.Width), 
      c("Species", "Petal.Length", "Petal.Width")]
+
+with(iris, 
+     iris[Sepal.Length > mean(Sepal.Length) & Sepal.Width > mean(Sepal.Width), 
+     sapply(iris, is.numeric)])
+iris[-(1:100),]
+
+#the same--------
+iris[!(iris$Sepal.Length > median(iris$Sepal.Length)),]
+iris[ -which(iris$Sepal.Length > median(iris$Sepal.Length)),]
+#-----------------
