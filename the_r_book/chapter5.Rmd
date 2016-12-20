@@ -7,3 +7,8 @@ data("iris")
 head(iris)
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
+
+```{python}
+print([i for i in range(0, 100)])
+```
+
