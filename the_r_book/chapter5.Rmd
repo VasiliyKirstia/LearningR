@@ -1,14 +1,27 @@
 ---
-title: "R Notebook"
+title: "The R Book. Chapter 5"
 output: html_notebook
 ---
 ```{r}
 data("iris")
-head(iris)
-plot(iris$Sepal.Length, iris$Sepal.Width)
+x1 <- iris$Petal.Length
+x2 <- iris$Sepal.Length
+y1 <- iris$Petal.Width
+y2 <- iris$Sepal.Width
 ```
 
-```{python}
-print([i for i in range(0, 100)])
+```{r}
+plot(x1, y1, xlab = "length", ylab = "width", col="red", pch=1)
+abline(lm(y1 ~ x1))
+points(x2, y2, col="blue", pch=2)
+abline(lm(y2 ~ x2))
+```
+
+```{r}
+plot(c(x1,x2), c(y1,y2), xlab="Explanatory variable", ylab = "Response variable", type = "n")
+points(x1, y1, col="red")
+points(x2, y2, col="blue", pch=16)
+abline(lm(y1 ~ x1))
+abline(lm(y2 ~ x2))
 ```
 
