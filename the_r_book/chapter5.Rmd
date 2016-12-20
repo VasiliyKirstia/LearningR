@@ -25,3 +25,12 @@ abline(lm(y1 ~ x1))
 abline(lm(y2 ~ x2))
 ```
 
+```{r}
+plot(c(x1,x2),c(y1,y2), xlim=range(x1,x2), ylim=range(y1, y2), xlab="Explanatory variable", ylab="Response variable", type="n")
+points(x1,y1,col="red")
+points(x2,y2,col="blue",pch=16)
+abline(lm(y1~x1))
+abline(lm(y2~x2))
+legend(3, c("petal","sepal"), pch=c(1,16), col=c("red","blue"))
+```
+
