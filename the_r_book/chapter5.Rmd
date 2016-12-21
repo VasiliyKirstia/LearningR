@@ -45,4 +45,21 @@ for (i in 1:8) points(1:8,rep(i,8),pch=c(21,22,24),bg=1:8,col=i)
 plot(c(0,10),c(0,10),type="n",xlab="",ylab="",xaxt="n", yaxt="n")
 for (i in 1:8) text(1:8,rep(i,8), LETTERS[i])
 ```
+```{r}
+species <- as.numeric(iris$Species)
+pchs <- rep(c(1,2,6), times=c(50,50,50))
+cols <- rep(c("red", "black", "blue"), times=c(50,50,50))
+plot(iris$Sepal.Length, iris$Sepal.Width, type = "n")
+for (k in 1:length(species)){
+  points(iris$Sepal.Length[k],iris$Sepal.Width[k],pch=pchs[k],col=cols[k])
+}
+```
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width)
+text(iris$Petal.Length, iris$Petal.Width, labels=as.character(iris$Species), pos=2, offset=0.5,cex=0.5)
+```
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width, pch=16, col=ifelse(iris$Petal.Length>median(iris$Petal.Length),"red","black"))
+legend(2,c("iPL>median","iPL<=median"),pch=16,col=c("red","black"))
+```
 
