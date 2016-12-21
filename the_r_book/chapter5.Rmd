@@ -34,3 +34,15 @@ abline(lm(y2~x2))
 legend(3, c("petal","sepal"), pch=c(1,16), col=c("red","blue"))
 ```
 
+```{r}
+plot(0:9,0:9,pch=16,type="n",xaxt="n",yaxt="n",ylab="col",xlab="bg")
+axis(1,at=1:8)
+axis(2,at=1:8)
+for (i in 1:8) points(1:8,rep(i,8),pch=c(21,22,24),bg=1:8,col=i)
+```
+
+```{r}
+plot(c(0,10),c(0,10),type="n",xlab="",ylab="",xaxt="n", yaxt="n")
+for (i in 1:8) text(1:8,rep(i,8), LETTERS[i])
+```
+
