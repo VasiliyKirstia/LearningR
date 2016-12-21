@@ -1,1 +1,2 @@
 read about promises in R
+read about 'locator' function
