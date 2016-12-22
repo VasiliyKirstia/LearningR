@@ -109,5 +109,41 @@ yB <- 518*xv*exp(-0.055*xv)
 plot(c(xv,xv),c(yA,yB),xlab="stock",ylab="recruits",type="n")
 lines(xv,yA,lty=2,col="blue")
 lines(xv,yB,lty=1,col="red")
+
+info <- read.table(file.path(getwd(), "data/plotfit.txt"), header = TRUE)
+with(info, points(x, y, pch=16))
+```
+```{r}
+data <- read.table(file.path(getwd(), "data/jaws.txt"), header=TRUE)
+par(mfrow=c(2,2))
+with(data, {
+  plot(age, bone, pch=16, main="lowess")
+  lines(lowess(age, bone), col="red")
+})
+
+with(data, {
+  plot(age, bone, pch=16, main="loess")
+  model <- loess(bone ~ age)
+  xv <- 0:50
+  yv <- predict(model, data.frame(age=xv))
+  lines(xv, yv, col="red")
+})
+
+library(mgcv)
+with(data, {
+  plot(age, bone, pch=16, main="gam")
+  model <- gam(bone ~ s(age))
+  xv <- 0:50
+  yv <- predict(model, list(age=xv))
+  lines(xv, yv, col="red")
+})
+
+with(data, {
+  plot(age, bone, pch=16, main="cubic polynomial")
+  model <- lm(bone ~ age + I(age ^ 2) + I(age ^ 3))
+  xv <- 0:50
+  yv <- predict(model, list(age=xv))
+  lines(xv, yv, col="red")
+})
 ```
 
