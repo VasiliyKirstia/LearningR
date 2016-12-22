@@ -146,4 +146,21 @@ with(data, {
   lines(xv, yv, col="red")
 })
 ```
+```{r}
+data <- read.table(file.path(getwd(), "data/Pollute.txt"), header=TRUE)
+#X11(width = 7, height = 4)
+par(mfrow=c(1,2))
+with(data,{
+  plot(Population,Pollution)
+  plot(Temp,Pollution)
+})
+#Sys.sleep(10)
+```
+```{r}
+weather <- read.table(file.path(getwd(), "data/SilwoodWeather.txt"), header=TRUE)
+with(weather, plot(as.factor(month), upper, ylab="daily maximum temperature", xlab="month"))
+```
+```{r}
+with(weather, plot(as.factor(month), upper, notch=TRUE, ylab="daily maximum temperature", xlab="month"))
+```
 
