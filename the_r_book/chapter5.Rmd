@@ -95,4 +95,19 @@ pd <- dnorm(z)
 plot(z,pd,type="l")
 polygon(c(z[z<=-0.5],-0.5),c(pd[z<=-0.5],pd[z==-3]),col="red")
 ```
+```{r}
+curve(x^3-3*x, -2, 2)
+
+x <- seq(-2,2,0.01)
+y <- x^3-3*x
+plot(x,y,type="l")
+```
+```{r}
+xv <- 0:100
+yA <- 482*xv*exp(-0.045*xv)
+yB <- 518*xv*exp(-0.055*xv)
+plot(c(xv,xv),c(yA,yB),xlab="stock",ylab="recruits",type="n")
+lines(xv,yA,lty=2,col="blue")
+lines(xv,yB,lty=1,col="red")
+```
 
