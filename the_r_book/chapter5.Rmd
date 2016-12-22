@@ -163,4 +163,32 @@ with(weather, plot(as.factor(month), upper, ylab="daily maximum temperature", xl
 ```{r}
 with(weather, plot(as.factor(month), upper, notch=TRUE, ylab="daily maximum temperature", xlab="month"))
 ```
+```{r}
+trial <- read.table(file.path(getwd(), "data/compexpt.txt"), header = TRUE)
+means <- tapply(trial$biomass, trial$clipping, mean)
+barplot(means, xlab="treatment", ylab="mean yield", col="green")
+```
+```{r}
+seBars <- function(x,y){
+  model <- lm(y~factor(x))
+  reps <- length(y)/length(levels(x))
+  sem <- summary(model)$sigma/sqrt(reps)
+  m <- as.vector(tapply(y,x,mean))
+  upper <- max(m)+sem
+  nn <- as.character(levels(x))
+  xs <- barplot(m,ylim=c(0,upper),names=nn,
+  ylab=deparse(substitute(y)),xlab=deparse(substitute(x)))
+  for (i in 1:length(xs)) {
+    arrows(xs[i],m[i]+sem,xs[i],m[i]-sem,angle=90,code=3,length=0.1) 
+  }
+}
+with(trial, seBars(clipping,biomass))
+```
+```{r}
+with(trial,{
+  par(mfrow=c(1,2))
+  plot(clipping,biomass)
+  plot(clipping,biomass,notch=T)
+})
+```
 
