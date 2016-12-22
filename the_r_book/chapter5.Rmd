@@ -191,4 +191,29 @@ with(trial,{
   plot(clipping,biomass,notch=T)
 })
 ```
+```{r}
+data <- read.table(file.path(getwd(), "data/box.txt"), header=TRUE)
+with(data, plot(response~factor(fact),notch=TRUE))
+```
+```{r}
+with(data,{
+  index <- order(tapply(response,fact,mean))
+  ordered <- factor(rep(index,rep(20,8)))
+  boxplot(response~ordered,notch=T,names=as.character(index),
+  xlab="ranked treatments",ylab="response")
+})
+```
+```{r}
+with(data,{
+  model <- aov(response~factor(fact))
+  summary(model)
+})
+```
+```{r}
+with(data,{
+  model <- aov(response~factor(fact))
+  summary(model)
+  plot(TukeyHSD(model))
+})
+```
 
