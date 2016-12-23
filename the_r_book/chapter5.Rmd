@@ -322,6 +322,10 @@ with(data, {
 })
 ```
 ```{r}
-
+numbers <- read.table(file.path(getwd(), "data/longdata.txt"), header=T)
+with(numbers, plot(jitter(xlong,amount=1),jitter(ylong,amount=1),xlab="input",ylab="count"))
 ```
 
+```{r}
+with(numbers, sunflowerplot(xlong,ylong))
+```
