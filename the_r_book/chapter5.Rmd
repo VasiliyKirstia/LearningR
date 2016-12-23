@@ -259,4 +259,17 @@ xs <- 0:11
 ys <- dnbinom(xs,size=1.2788,mu=1.772)
 lines(xs,ys*158)
 ```
+```{r}
+library(MASS)
+with(faithful, {
+  print((max(eruptions)-min(eruptions))/(2*(1+log(length(eruptions),base=2))))  
+  par(mfrow=c(1,2))
+  hist(eruptions,15,freq=FALSE,main="hist",col=27)
+  lines(density(eruptions,width=0.6,n=200))
+  
+  truehist(eruptions,nbins=15,col=27, main="truehist")
+  lines(density(eruptions,n=200))
+})
+
+```
 
