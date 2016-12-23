@@ -216,4 +216,47 @@ with(data,{
   plot(TukeyHSD(model))
 })
 ```
+```{r}
+data<-read.table(file.path(getwd(), "data/daphnia.txt"), header=TRUE)
+with(data,{
+  par(mfrow=c(1,2))
+  hist(Growth.rate, seq(0, 8, 0.5), col = "blue")
+  y <- as.vector(tapply(Growth.rate, list(Daphnia, Detergent), mean))
+  barplot(y, col="green", ylab="Growth rate", xlab="Treatment")
+})
+```
+```{r}
+with(data, {
+  par(mfrow=c(2,2))
+  hist(Growth.rate,seq(0,8,0.25),col="grey",main="")
+  hist(Growth.rate,seq(0,8,0.5),col="green",main="")
+  hist(Growth.rate,seq(0,8,2),col="blue",main="")
+  hist(Growth.rate,c(0,3,4,8),col="red",main="")
+})
+```
+```{r}
+with(data,{
+  print(range(Growth.rate))
+  edges <- c(0,3,4,8)
+  bin <- cut(Growth.rate,edges)
+  hist(as.numeric(bin))
+})
+```
+```{r}
+par(mfrow=c(1,2))
+values <- rpois(1000, 1.7)
+hist(values,breaks=(-0.5:8.5),main="",xlab="random numbers from a Poisson with mean 1.7")
+hist(values,main="",xlab="random numbers from a Poisson with mean 1.7")
+```
+```{r}
+y <- rnbinom(158, mu=1.5, size=1)
+bks <- -0.5:(max(y)+0.5)
+hist(y,bks,main="")
+mean(y)
+var(y)
+mean(y)^2/(var(y)-mean(y))
+xs <- 0:11
+ys <- dnbinom(xs,size=1.2788,mu=1.772)
+lines(xs,ys*158)
+```
 
