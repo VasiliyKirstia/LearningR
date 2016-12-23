@@ -313,4 +313,15 @@ with(ozonedata,{
 yields <- read.table(file.path(getwd(), "data/splityield.txt"), header=TRUE)
 with(yields, interaction.plot(fertilizer,irrigation,yield))
 ```
+```{r}
+data<-read.table(file.path(getwd(), "data/daphnia.txt"), header=TRUE)
+with(data, {
+  par(mfrow=c(1,2))
+  plot.design(Growth.rate~Water*Detergent*Daphnia)
+  plot.design(Growth.rate~Water*Detergent*Daphnia,fun=function(x) sqrt(var(x)/3) )
+})
+```
+```{r}
+
+```
 
