@@ -280,4 +280,22 @@ plot(response$y)
 response$y[which(response$y > 8)] <- mean(response$y)
 plot(response$y)
 ```
+```{r}
+data(UKLungDeaths)
+ts.plot(ldeaths, mdeaths, fdeaths, xlab="year", ylab="deaths", lty=c(1:3))
+```
+```{r}
+data(sunspots)
+plot(sunspots)
+```
+```{r}
+data <- read.csv(file.path(getwd(),"data/piedata.csv"))
+pie(data$amounts,labels=as.character(data$names))
+```
+```{r}
+data(OrchardSprays)
+with(OrchardSprays,{
+  stripchart(decrease ~ treatment, ylab = "decrease", vertical = TRUE, log = "y")
+})
+```
 
