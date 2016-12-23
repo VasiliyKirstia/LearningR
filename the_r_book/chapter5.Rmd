@@ -298,4 +298,19 @@ with(OrchardSprays,{
   stripchart(decrease ~ treatment, ylab = "decrease", vertical = TRUE, log = "y")
 })
 ```
+```{r}
+ozonedata <- read.table(file.path(getwd(), "data/ozone.data.txt"), header=TRUE)
+print(names(ozonedata))
+pairs(ozonedata)
+pairs(ozonedata,panel=panel.smooth)
+```
+```{r}
+with(ozonedata,{
+  coplot(ozone~wind|temp,panel = panel.smooth)
+})
+```
+```{r}
+yields <- read.table(file.path(getwd(), "data/splityield.txt"), header=TRUE)
+with(yields, interaction.plot(fertilizer,irrigation,yield))
+```
 
