@@ -272,4 +272,12 @@ with(faithful, {
 })
 
 ```
+```{r}
+response <- read.table(file.path(getwd(), "data/das.txt"), header=T)
+plot(response$y)
+```
+```{r}
+response$y[which(response$y > 8)] <- mean(response$y)
+plot(response$y)
+```
 
