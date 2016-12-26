@@ -55,4 +55,12 @@ with(data,{
   head(new)
 })
 ```
+```{r}
+count.table<-read.table(file.path(getwd(), "data/tabledata.txt"), header=T)
+lapply(count.table,function(x)rep(x, count.table$count))
+```
+```{r}
+dbtable<-as.data.frame(lapply(count.table,function(x) rep(x, count.table$count)))
+head(dbtable)
+```
 
