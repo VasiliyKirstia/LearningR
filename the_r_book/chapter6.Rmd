@@ -1,0 +1,15 @@
+---
+title: "Chapter 6. Tables"
+output: html_notebook
+---
+```{r}
+counts <- rpois(1000, 0.6)
+table(counts)
+```
+
+```{r}
+infections <- read.table(file.path(getwd(), "data/infection.txt"), header = TRUE)
+with(infections, table(infected, sex))
+with(infections, table(sex, infected))
+```
+
