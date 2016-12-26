@@ -1,0 +1,37 @@
+---
+title: "Chapter 7. Mathematics."
+output: html_notebook
+---
+```{r}
+x <- seq(0,10,0.1)
+par(mfrow=c(1,2))
+y <- exp(x)
+plot(y~x,type="l",main="Exponential")
+y <- log(x)
+plot(y~x,type="l",main="Logarithmic")
+```
+```{r}
+par(mfrow=c(2,2))
+x <- seq(0,2*pi,2*pi/100)
+y1 <- cos(x)
+y2 <- sin(x)
+y3 <- tan(x)
+y4 <- cos(x)/sin(x)
+plot(y1~x,type="l",main="cosine")
+plot(y2~x,type="l",main="sine")
+plot(y3~x,type="l",ylim=c(-3,3),main="tangent")
+plot(y4~x,type="l",ylim=c(-3,3),main="cotangent")
+```
+```{r}
+par(mfrow=c(2,2))
+x <- seq(0,1,0.01)
+y <- x^0.5
+plot(x,y,type="l",main="0<b<1")
+y <- x
+plot(x,y,type="l",main="b=1")
+y <- x^2
+plot(x,y,type="l",main="b>1")
+y <- 1/x
+plot(x,y,type="l",main="b<0")
+```
+
