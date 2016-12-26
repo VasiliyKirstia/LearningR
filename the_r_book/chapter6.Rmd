@@ -62,5 +62,31 @@ lapply(count.table,function(x)rep(x, count.table$count))
 ```{r}
 dbtable<-as.data.frame(lapply(count.table,function(x) rep(x, count.table$count)))
 head(dbtable)
+dbtable<-dbtable[,-1]
+head(dbtable)
+```
+```{r}
+table(dbtable)
+```
+```{r}
+as.data.frame(table(dbtable))
+```
+```{r}
+(counts<-matrix(c(2,2,4,3,1,4,2,0,1,5,3,3),nrow=4))
+```
+```{r}
+prop.table(counts,1)
+```
+```{r}
+prop.table(counts,2)
+```
+```{r}
+prop.table(counts)
+```
+```{r}
+sum(prop.table(counts))
+```
+```{r}
+colSums(prop.table(counts, 2))
 ```
 
