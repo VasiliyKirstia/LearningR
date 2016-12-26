@@ -13,3 +13,46 @@ with(infections, table(infected, sex))
 with(infections, table(sex, infected))
 ```
 
+```{r}
+data <- read.table(file.path(getwd(), "data/daphnia.txt"), header = TRUE)
+with(data, tapply(Growth.rate,Detergent,mean))
+```
+```{r}
+with(data, tapply(Growth.rate,Water,mean))
+```
+```{r}
+with(data, tapply(Growth.rate,Daphnia,mean))
+```
+```{r}
+with(data, tapply(Growth.rate,list(Daphnia,Detergent),mean))
+```
+```{r}
+with(data, tapply(Growth.rate,list(Daphnia,Detergent),median))
+```
+```{r}
+with(data, {
+  tapply(Growth.rate,list(Daphnia,Detergent), function(x) sqrt(var(x)/length(x)))
+})
+```
+```{r}
+with(data, tapply(Growth.rate,list(Daphnia,Detergent,Water),mean))
+```
+```{r}
+with(data, ftable(tapply(Growth.rate,list(Daphnia,Detergent,Water),mean)))
+```
+```{r}
+with(data, {
+  ftable(tapply(Growth.rate,list(Daphnia,Detergent,factor(Water,levels=c("Wear","Tyne"))),mean))
+})
+```
+```{r}
+with(data, as.data.frame.table(tapply(Growth.rate,list(Detergent,Daphnia),mean)))
+```
+```{r}
+with(data,{
+  new<-as.data.frame.table(tapply(Growth.rate,list(Detergent,Daphnia),mean))
+  names(new)<-c("detergents","daphina","means")
+  head(new)
+})
+```
+
