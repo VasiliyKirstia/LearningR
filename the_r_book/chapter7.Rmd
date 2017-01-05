@@ -137,4 +137,18 @@ plot(x,y,type="l",main="x^8")
 ```{r}
 print(pnorm(-1.25))
 ```
+```{r}
+par(mfrow=c(2,2))
+hist(sample(1:6,replace=T,10000),breaks=0.5:6.5,main="",xlab="one die")
+a <- sample(1:6,replace=T,10000)
+b <- sample(1:6,replace=T,10000)
+hist(a+b,breaks=1.5:12.5,main="", xlab="two dice")
+c <- sample(1:6,replace=T,10000)
+hist(a+b+c,breaks=2.5:18.5,main="", xlab="three dice")
+d <- sample(1:6,replace=T,10000)
+e <- sample(1:6,replace=T,10000)
+hist(a+b+c+d+e,breaks=4.5:30.5,main="", xlab="five dice")
+print(paste(c(mean(a+b+c+d+e), sd(a+b+c+d+e))))
+lines(seq(1,30,0.1),dnorm(seq(1,30,0.1),17.5937,3.837668)*10000)
+```
 
