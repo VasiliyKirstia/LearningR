@@ -122,4 +122,19 @@ arrows(-1,pnorm(-1),-3,pnorm(-1),col="green")
 ```{r}
 curve(dnorm(x),-3,3)
 ```
+```{r}
+par(mfrow=c(2,2))
+x <- seq(-3,3,0.01)
+y <- exp(-abs(x))
+plot(x,y,type="l",main="x")
+y <- exp(-abs(x)^2)
+plot(x,y,type="l",main="x^2")
+y <- exp(-abs(x)^3)
+plot(x,y,type="l",main="x^3")
+y <- exp(-abs(x)^8)
+plot(x,y,type="l",main="x^8")
+```
+```{r}
+print(pnorm(-1.25))
+```
 
