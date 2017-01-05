@@ -55,4 +55,55 @@ plot(x,y1,type="l",ylab="y",main="Michaelis-Menten")
 plot(x,y2,type="l",ylab="y",main="shallow hump")
 plot(x,y3,type="l",ylab="y",main="steep hump")
 ```
+```{r}
+par(mfrow=c(1,1))
+t <- seq(0.2,4,0.01)
+plot(t,gamma(t),type="l")
+abline(h=1,lty=2)
+```
+```{r}
+par(mfrow=c(2,2))
+x <- seq(0,10,0.1)
+y <- 100/(1+90*exp(-1*x))
+plot(x,y,type="l",main="three-parameter logistic")
+y <- 20+100/(1+exp(0.8*(3-x)))
+plot(x,y,ylim=c(0,140),type="l",main="four-parameter logistic")
+x <- -200:100
+y <- 100*exp(-exp(0.02*x))
+plot(x,y,type="l",main="negative Gompertz")
+x <- 0:100
+y <- 50*exp(-5*exp(-0.08*x))
+plot(x,y,type="l",main="positive Gompertz")
+```
+```{r}
+#par(mfrow=c(2,2))
+#1
+a <- 10
+b <- -0.8
+c <- 10
+d <- -0.05
+y <- a*exp(b*x)+c*exp(d*x)
+plot(x,y,main="+ - + -",type="l")
+#2
+a <- 10
+b <- -0.8
+c <- 10
+d <- 0.05
+y <- a*exp(b*x)+c*exp(d*x)
+plot(x,y,main="+ - + +",type="l")
+#3
+a <- 200
+b <- 0.2
+c <- -1
+d <- 0.7
+y <- a*exp(b*x)+c*exp(d*x)
+plot(x,y,main="+ + - +",type="l")
+#4
+a <- 200
+b <- 0.05
+c <- 300
+d <- -0.5
+y <- a*exp(b*x)+c*exp(d*x)
+plot(x,y,main="+ + + -",type="l")
+```
 
