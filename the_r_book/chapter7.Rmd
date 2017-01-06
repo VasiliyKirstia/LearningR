@@ -175,4 +175,10 @@ with(fishes,{
   lines(seq(0,16,0.1),length(mass)*dnorm(seq(0,16,0.1),mean(mass),sqrt(var(mass))))
 })
 ```
+```{r}
+1-pchisq(14.3,9)
+qchisq(1-0.05, 9)
+1-pf(2.85,8,12)
+qt(0.975,10)
+```
 
