@@ -151,4 +151,12 @@ hist(a+b+c+d+e,breaks=4.5:30.5,main="", xlab="five dice")
 print(paste(c(mean(a+b+c+d+e), sd(a+b+c+d+e))))
 lines(seq(1,30,0.1),dnorm(seq(1,30,0.1),17.5937,3.837668)*10000)
 ```
+```{r}
+par(mfrow=c(2,2))
+curve(dnorm,-3,3,xlab="z",ylab="Probability density",main="Density")
+curve(pnorm,-3,3,xlab="z",ylab="Probability",main="Probability")
+curve(qnorm,0,1,xlab="p",ylab="Quantile (z)",main="Quantiles")
+y <- rnorm(1000)
+hist(y,xlab="z",ylab="frequency",main="Random numbers")
+```
 
