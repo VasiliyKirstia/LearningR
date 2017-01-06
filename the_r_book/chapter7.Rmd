@@ -159,4 +159,12 @@ curve(qnorm,0,1,xlab="p",ylab="Quantile (z)",main="Quantiles")
 y <- rnorm(1000)
 hist(y,xlab="z",ylab="frequency",main="Random numbers")
 ```
+```{r}
+yvals <- rnorm(100)
+mean(yvals)
+sd(yvals)
+yvals <- (yvals - mean(yvals))/sd(yvals)
+mean(yvals)
+sd(yvals)
+```
 
