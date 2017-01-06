@@ -181,4 +181,14 @@ qchisq(1-0.05, 9)
 1-pf(2.85,8,12)
 qt(0.975,10)
 ```
-
+```{r}
+par(mfrow=c(1,2))
+x <- seq(0,30,.25)
+plot(x,pchisq(x,3,7.25),type="l",ylab="p(x)",xlab="x")
+plot(x,pchisq(x,5,10),type="l",ylab="p(x)",xlab="x")
+```
+```{r}
+#95% confidence interval for variance (s-squared = 10.2 and 8 d.f.)
+8*10.2/qchisq(.975,8)
+8*10.2/qchisq(.025,8)
+```
