@@ -167,4 +167,12 @@ yvals <- (yvals - mean(yvals))/sd(yvals)
 mean(yvals)
 sd(yvals)
 ```
+```{r}
+par(mfrow=c(1,1))
+fishes <- read.table(file.path(getwd(), "data/fishes.txt"),header=T)
+with(fishes,{
+  hist(mass, breaks=-0.5:16.5,col="green",main="")
+  lines(seq(0,16,0.1),length(mass)*dnorm(seq(0,16,0.1),mean(mass),sqrt(var(mass))))
+})
+```
 
