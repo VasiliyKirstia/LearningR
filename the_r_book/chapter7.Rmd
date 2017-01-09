@@ -326,4 +326,9 @@ x <- runif(1000000)
 y <- runif(1000000)
 plot(x,y,pch=".",col="blue")
 ```
+```{r}
+fishes <- read.table(file.path(getwd(),"data/fishes.txt"),header=T)
+plot(ecdf(fishes$mass))
+#str(ecdf(fishes$mass))
+```
 
