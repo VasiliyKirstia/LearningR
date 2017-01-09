@@ -224,4 +224,41 @@ xvs <- seq(-4,4,0.01)
 plot(xvs,dnorm(xvs),type="l",lty=2,ylab="Probability density",xlab="Deviates")
 lines(xvs,dt(xvs,df=5),col="red")
 ```
+```{r}
+x <- seq(0.01,4,.01)
+par(mfrow=c(2,2))
+y <- dgamma(x,.5,.5)
+plot(x,y,type="l",col="red",main="alpha = 0.5")
+y <- dgamma(x,.8,.8)
+plot(x,y,type="l",col="red", main="alpha = 0.8")
+y <- dgamma(x,2,2)
+plot(x,y,type="l",col="red", main="alpha = 2")
+y <- dgamma(x,10,10)
+plot(x,y,type="l",col="red", main="alpha = 10")
+```
+```{r}
+qgamma(0.95,2/3,4/3)
+```
+```{r}
+fishes <- read.table(file.path(getwd(),"data/fishes.txt"),header=T)
+(rate <- mean(fishes$mass)/var(fishes$mass))
+(shape <- rate*mean(fishes$mass))
+```
+```{r}
+par(mfrow=c(1,1))
+hist(fishes$mass,breaks=-0.5:16.5,col="green",main="")
+lines(seq(0.01,15,0.01),length(fishes$mass)*dgamma(seq(0.01,15,0.01),shape,rate))
+```
+```{r}
+par(mfrow=c(2,2))
+x <- seq(0,1,0.01)
+fx <- dbeta(x,2,3)
+plot(x,fx,type="l",main="a=2 b=3",col="red")
+fx <- dbeta(x,0.5,2)
+plot(x,fx,type="l",main="a=0.5 b=2",col="red")
+fx <- dbeta(x,2,0.5)
+plot(x,fx,type="l",main="a=2 b=0.5",col="red")
+fx <- dbeta(x,0.5,0.5)
+plot(x,fx,type="l",main="a=0.5 b=0.5",col="red")
+```
 
