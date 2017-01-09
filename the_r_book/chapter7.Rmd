@@ -287,4 +287,31 @@ ft <- a*l*t^(a-1)*exp(-l*t^a)
 lines(t,ft,type="l",col="green")
 legend(1.4,1.1,c("1","2","3"),title="alpha",lty=c(1,1,1),col=c(2,3,4))
 ```
+```{r}
+rm(list = ls())
+library(MASS)
+```
+
+```{r}
+xy <- mvrnorm(1000,mu=c(50,60),matrix(c(4,3.7,3.7,9),2))
+var(xy)
+```
+```{r}
+x <- xy[,1]
+y <- xy[,2]
+plot(x,y,pch=16,ylab="y",xlab="x",col="blue")
+```
+```{r}
+var(x)
+var(y)
+```
+```{r}
+var(x+y)
+var(x) + var(y)
+```
+```{r}
+cov(x,y)
+cor(x,y)
+cor(x,y)*sqrt(var(x)*var(y)) #covariation
+```
 
