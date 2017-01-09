@@ -192,3 +192,24 @@ plot(x,pchisq(x,5,10),type="l",ylab="p(x)",xlab="x")
 8*10.2/qchisq(.975,8)
 8*10.2/qchisq(.025,8)
 ```
+```{r}
+qf(0.95, 2, 18)
+x <- seq(0.05,4,0.05)
+plot(x,df(x,2,18),type="l",ylab="f(x)",xlab="x")
+plot(x,df(x,6,18),type="l",ylab="f(x)",xlab="x")
+```
+```{r}
+par(mfrow=c(1,1))
+df <- seq(1,30,.1)
+plot(df,qf(.95,df,30),type="l",ylab="Critical F")
+lines(df,qf(.95,df,10),lty=2)
+```
+```{r}
+x <- seq(0.01,3,0.01)
+plot(x,df(x,1,10),type="l",ylim=c(0,1),ylab="f(x)")
+lines(x,df(x,2,10),lty=6,col="red")
+lines(x,df(x,5,10),lty=2,col="green")
+lines(x,df(x,30,10),lty=3,col="blue")
+legend(2,0.9,c("1","2","5","30"),col=(1:4),lty=c(1,6,2,3),title="numerator d.f.")
+```
+
