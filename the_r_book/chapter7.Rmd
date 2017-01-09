@@ -314,4 +314,16 @@ cov(x,y)
 cor(x,y)
 cor(x,y)*sqrt(var(x)*var(y)) #covariation
 ```
+```{r}
+x <- ceiling(runif(10000)*6)
+table(x)
+```
+```{r}
+hist(x,breaks=0.5:6.5,main="")
+```
+```{r}
+x <- runif(1000000)
+y <- runif(1000000)
+plot(x,y,pch=".",col="blue")
+```
 
