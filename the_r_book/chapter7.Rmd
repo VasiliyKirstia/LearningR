@@ -212,4 +212,16 @@ lines(x,df(x,5,10),lty=2,col="green")
 lines(x,df(x,30,10),lty=3,col="blue")
 legend(2,0.9,c("1","2","5","30"),col=(1:4),lty=c(1,6,2,3),title="numerator d.f.")
 ```
+```{r}
+curve( (1+x^2)^(-0.5), -3, 3,ylab="t(x)",col="red")
+```
+```{r}
+plot(1:30,qt(0.975,1:30), ylim=c(0,12),type="l",ylab="Students t value",xlab="d.f.",col="red")
+abline(h=2,lty=2,col="green")
+```
+```{r}
+xvs <- seq(-4,4,0.01)
+plot(xvs,dnorm(xvs),type="l",lty=2,ylab="Probability density",xlab="Deviates")
+lines(xvs,dt(xvs,df=5),col="red")
+```
 
