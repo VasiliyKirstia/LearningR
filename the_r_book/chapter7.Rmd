@@ -398,4 +398,23 @@ with(numbers,{
   print(t(cbind(1,growth,tannin)) %*% cbind(1,growth,tannin))
 })
 ```
+```{r}
+A <- matrix(c(3,1,4,2),nrow=2)
+A
+kv <- matrix(c(12,8),nrow=2)
+kv
+solve(A, kv)
+```
+```{r}
+D(expression(1/(exp(-2*x))), "x")
+D(expression(log(fu)), "fu")
+```
+```{r}
+integrate(dnorm,-Inf,Inf)
+integrate(function(x){exp(x)}, 0, 1)
+```
+```{r}
+library(deSolve)
+
+```
 
