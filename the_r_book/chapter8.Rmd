@@ -29,4 +29,14 @@ qqline(y,lty=2)
 x <- exp(rnorm(30))
 shapiro.test(x)
 ```
+```{r}
+light <- read.table(file.path(getwd(), "data/light.txt"),header=T)
+hist(light$speed)
+```
+```{r}
+summary(light$speed)
+```
+```{r}
+wilcox.test(light$speed,mu=990)
+```
 
