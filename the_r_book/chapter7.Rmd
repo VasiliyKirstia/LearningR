@@ -331,4 +331,18 @@ fishes <- read.table(file.path(getwd(),"data/fishes.txt"),header=T)
 plot(ecdf(fishes$mass))
 #str(ecdf(fishes$mass))
 ```
+```{r}
+fx <- dgeom(0:20,0.2)
+barplot(fx,names=0:20,xlab="outcome",ylab="probability",col="cyan")
+```
+```{r}
+ph <- dhyper(0:5,6,14,5)
+barplot(ph,names=(0:5),col="red",xlab="outcome",ylab="probability")
+```
+```{r}
+rhyper(20,6,14,5)
+```
+```{r}
+hist(rpois(600, 0.9),breaks = - 0.5:6.5,main="")
+```
 
