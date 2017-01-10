@@ -1,0 +1,32 @@
+---
+title: "Chapter 8. Classical tests."
+output: html_notebook
+---
+```{r}
+data <- read.table(file.path(getwd(), "data/daphnia.txt"), header = TRUE)
+y <- data$Growth.rate
+
+par(mfrow=c(2,2))
+plot(y)
+boxplot(y)
+hist(y,main="")
+y2 <- y
+y2[52] <- 21.75
+plot(y2)
+```
+```{r}
+summary(y)
+```
+```{r}
+fivenum(y)
+```
+```{r}
+par(mfrow=c(1,1))
+qqnorm(y)
+qqline(y,lty=2)
+```
+```{r}
+x <- exp(rnorm(30))
+shapiro.test(x)
+```
+
