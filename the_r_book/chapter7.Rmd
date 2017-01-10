@@ -345,4 +345,57 @@ rhyper(20,6,14,5)
 ```{r}
 hist(rpois(600, 0.9),breaks = - 0.5:6.5,main="")
 ```
+```{r}
+(a <- matrix(c(1,0,4,2,-1,1),nrow=3))
+(b <- matrix(c(1,-1,2,1,1,0),nrow=2))
+```
+```{r}
+a %*% b
+b %*% a
+```
+```{r}
+(ym <- diag(1,3,3))
+diag(ym) <- 1:3
+ym
+diag(ym)
+```
+```{r}
+M <- cbind(X=1:5, Y=rnorm(5))
+var(M)
+diag(var(M))
+```
+```{r}
+M <- matrix(c(1,2,4,2,1,1,3,1,2),nrow=3)
+M
+det(M)
+```
+```{r}
+B <- M
+B[3,] <- 3*B[3,]
+B
+det(B)
+```
+```{r}
+library(MASS)
+ginv(M)
+det(ginv(M))
+1/det(ginv(M))
+M %*% ginv(M)
+```
+```{r}
+L <- c(0,0.7,0,0,6,0,0.5,0,3,0,0,0.3,1,0,0,0)
+(L <- matrix(L,nrow=4))
+```
+```{r}
+eigen(L)
+```
+```{r}
+numbers <- read.table(file.path(getwd(), "data/tannin.txt"),header=T)
+with(numbers,{
+  print(growth %*% tannin)
+  print(growth %*% growth)
+  print(growth %*% rep(1,9))
+  print(t(cbind(1,growth,tannin)) %*% cbind(1,growth,tannin))
+})
+```
 
